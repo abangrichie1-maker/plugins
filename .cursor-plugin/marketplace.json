@@ -782,6 +782,11 @@
       "name": "expensify",
       "source": "third_party/expensify",
       "description": "Connect your Expensify account so Grok can search your expenses, reports, receipts, and invoices to answer questions about your spending. You'll share the Expensify data your account can already see. Access is read-only, and you can revoke it anytime."
+    },
+    {
+      "name": "lmty",
+      "source": "third_party/lmty",
+      "description": "Read tracked competitors, competitive intelligence reports, change logs, evidence, social mentions, and market feeds for your products, and browse LMTY's public Markets, event timelines, and company, product, and person profiles."
     }
   ]
 }
