@@ -772,6 +772,11 @@
       "name": "redo",
       "source": "third_party/redo",
       "description": "Look up orders and customers, create and process returns, work support tickets, review marketing campaigns and automations, manage fulfillment and inventory, and build analytics reports in Redo."
+    },
+    {
+      "name": "createos",
+      "source": "third_party/createos",
+      "description": "Deploy and manage projects, environments, deployments, domains, logs, cron jobs, security scans, templates, and sandboxes on NodeOps CreateOS."
     }
   ]
 }
