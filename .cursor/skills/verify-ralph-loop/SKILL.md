@@ -39,7 +39,7 @@ Read every TLC result with `/statechart`. The view module is `.cursor/skills/ver
 
 ## What the run means
 
-The command exits **1** when the only breaks are the four recorded below and TLC fails the same three clauses the hooks fail. That is the current code, not a pass. It exits **0** only if those breaks are gone and nothing new fails. It exits **2** when a new break appears, a recorded break disappears, or TLC and the hooks disagree about a clause. Exit 2 on a hook edit you did not reflect in `RalphLoop.tla` is a stale model. Exit 2 where TLC and the hooks agree is a new break in the hooks: report the counterexample, and do not weaken a clause or the model to hide it. Do not change the hook scripts from this skill.
+The command exits **1** when the only breaks are the four recorded below and TLC fails the same three clauses the hooks fail. That is the current code, not a pass. It exits **0** only when `KNOWN_KINDS` in `check.mjs` is empty and the hooks and TLC both hold every clause. It exits **2** when a new break appears, a recorded break disappears, or TLC and the hooks disagree about a clause. Exit 2 on a hook edit you did not reflect in `RalphLoop.tla` is a stale model. Exit 2 where TLC and the hooks agree is a new break in the hooks: report the counterexample, and do not weaken a clause or the model to hide it. Do not change the hook scripts from this skill.
 
 A modeling error is a TLC step that the scripts cannot take. The capture step is `capture-response.sh` and it runs to the end before `stop-hook.sh` starts. Each stop action is one branch of `stop-hook.sh`, in the order the script tests them: unreadable count, done flag, limit, empty task, then the followup. If a trace needs a branch the script does not have, the model is wrong. Fix the model from the script, then run the command again.
 
@@ -85,7 +85,7 @@ Outside this bound, and not checked: any other phrase or task text, a reply with
 
 ## Keeping the check in step with the code
 
-Sync commit: `SYNC_COMMIT_SHA`
+Sync commit: `fb1b65fe959fda3753dae64519c03082b2961804`
 
 That commit is the one at which this model was confirmed to describe the three hook files. Move it forward only after you have run the command on the new commit and confirmed that every action in `RalphLoop.tla` still matches the script it names. If the covered files are unchanged since this commit, the model still describes them. If you only correct this hash, leave the sync commit pointing at the commit you actually checked.
 
